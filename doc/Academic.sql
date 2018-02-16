@@ -24,9 +24,9 @@ CREATE TABLE `Academic`.`Student` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL 
                                 `student_photo` VARCHAR(255) NOT NULL COMMENT '照片' ,
                                 `remarks` VARCHAR(255) NOT NULL COMMENT '备注信息' ,
                                 `creater_name` VARCHAR(15) COMMENT '创建人' ,
-                                `create_time` INT COMMENT '创建时间' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
                                 `updater_name` VARCHAR(15) COMMENT '修改人' ,
-                                `update_time` INT COMMENT '修改时间' ) ENGINE = InnoDB COMMENT = '学生信息表';
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ) ENGINE = InnoDB COMMENT = '学生信息表';
 
 CREATE TABLE `Academic`.`User` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
                                 `school_code` VARCHAR(255) NOT NULL COMMENT '学校编码' ,
@@ -41,9 +41,9 @@ CREATE TABLE `Academic`.`User` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COM
                                 `user_type` TINYINT UNSIGNED NOT NULL COMMENT '用户类型' ,
                                 `user_tel` VARCHAR(50) NOT NULL COMMENT '联系电话' ,
                                 `creater_name` VARCHAR(15) COMMENT '创建人' , 
-                                `create_time` INT COMMENT '创建时间' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
                                 `updater_name` VARCHAR(15) COMMENT '修改人' ,
-                                `update_time` INT COMMENT '修改时间' ,
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ,
                                 UNIQUE (`user_code`)) ENGINE = InnoDB COMMENT = '用户主表';
 
 CREATE TABLE `Academic`.`Role` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
@@ -54,20 +54,20 @@ CREATE TABLE `Academic`.`Role` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COM
                                 `role_state` TINYINT NOT NULL COMMENT '状态' ,
                                 `role_section` VARCHAR(50) NOT NULL COMMENT '所属部门' ,
                                 `role_class` VARCHAR(50) NOT NULL COMMENT '所属班级' ,
-                                 `creater_name` VARCHAR(15) COMMENT '创建人' ,
-                                `create_time` INT COMMENT '创建时间' ,
+                                `creater_name` VARCHAR(15) COMMENT '创建人' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
                                 `updater_name` VARCHAR(15) COMMENT '修改人' ,
-                                `update_time` INT COMMENT '修改时间' ,
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ,
                                 UNIQUE (`role_code`)) ENGINE = InnoDB COMMENT = '角色表';
 
 CREATE TABLE `Academic`.`School` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
                                 `school_code` VARCHAR(255) NOT NULL COMMENT '学校编码' ,
                                 `school_name` varchar(50) NOT NULL COMMENT '学校名称' ,
                                 `school_state` VARCHAR(15) NOT NULL COMMENT '状态' ,
-                                 `creater_name` VARCHAR(15) COMMENT '创建人' ,
-                                `create_time` INT COMMENT '创建时间' ,
+                                `creater_name` VARCHAR(15) COMMENT '创建人' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
                                 `updater_name` VARCHAR(15) COMMENT '修改人' ,
-                                `update_time` INT COMMENT '修改时间' ,
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ,
                                 UNIQUE (`school_code`)) ENGINE = InnoDB COMMENT = '学校表';
 
 CREATE TABLE `Academic`.`Institude` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
@@ -76,9 +76,9 @@ CREATE TABLE `Academic`.`Institude` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NUL
                                 `institude_name` VARCHAR(50) NOT NULL COMMENT '学院名称' ,
                                 `institude_state` TINYINT NOT NULL COMMENT '状态' ,
                                  `creater_name` VARCHAR(15) COMMENT '创建人' ,
-                                `create_time` INT COMMENT '创建时间' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
                                 `updater_name` VARCHAR(15) COMMENT '修改人' ,
-                                `update_time` INT COMMENT '修改时间' ,
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ,
                                 UNIQUE (`institude_code`)) ENGINE = InnoDB COMMENT = '学院表';
 
 CREATE TABLE `Academic`.`Subject` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
@@ -88,9 +88,9 @@ CREATE TABLE `Academic`.`Subject` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL 
                                 `subject_name` VARCHAR(50) NOT NULL COMMENT '专业名称' ,
                                 `subject_state` TINYINT NOT NULL COMMENT '状态' ,
                                 `creater_name` VARCHAR(15) COMMENT '创建人' ,
-                                `create_time` INT COMMENT '创建时间' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
                                 `updater_name` VARCHAR(15) COMMENT '修改人' ,
-                                `update_time` INT COMMENT '修改时间' ,
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ,
                                 UNIQUE (`subject_code`)) ENGINE = InnoDB COMMENT = '专业表';
 
 CREATE TABLE `Academic`.`Section` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
@@ -100,9 +100,9 @@ CREATE TABLE `Academic`.`Section` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL 
                                 `section_name` VARCHAR(50) NOT NULL COMMENT '部门名称' ,
                                 `section_state` TINYINT NOT NULL COMMENT '状态' ,
                                 `creater_name` VARCHAR(15) COMMENT '创建人' ,
-                                `create_time` INT COMMENT '创建时间' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
                                 `updater_name` VARCHAR(15) COMMENT '修改人' ,
-                                `update_time` INT COMMENT '修改时间' ,
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ,
                                 UNIQUE (`section_code`)) ENGINE = InnoDB COMMENT = '部门表';
 
 CREATE TABLE `Academic`.`Class` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
@@ -111,24 +111,24 @@ CREATE TABLE `Academic`.`Class` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL CO
                                 `class_name` VARCHAR(50) NOT NULL COMMENT '班级名称' ,
                                 `subject_code` VARCHAR(255) NOT NULL COMMENT '所属专业编码' ,
                                 `creater_name` VARCHAR(15) COMMENT '创建人' ,
-                                `create_time` INT COMMENT '创建时间' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
                                 `updater_name` VARCHAR(15) COMMENT '修改人' ,
-                                `update_time` INT COMMENT '修改时间' ,
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ,
                                 UNIQUE (`class_name`)) ENGINE = InnoDB COMMENT = '班级表';
 
 CREATE TABLE `Academic`.`Dorm` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
                                `school_code` VARCHAR(255) NOT NULL COMMENT '学校编码' ,
-                                `institude_code` VARCHAR(255) NOT NULL COMMENT '学院编码' ,
-                                 `building_code` VARCHAR(255) NOT NULL COMMENT '楼号' ,
-                                `dormitory_code` VARCHAR(255) NOT NULL COMMENT '寝室号' ,
-                                `bed_num` INT UNSIGNED NOT NULL COMMENT '床数' ,
-                                 `creater_name` VARCHAR(15) COMMENT '创建人' ,
-                                `create_time` INT COMMENT '创建时间' ,
-                                `updater_name` VARCHAR(15) COMMENT '修改人' ,
-                                `update_time` INT COMMENT '修改时间' ) ENGINE = InnoDB COMMENT = '宿舍信息表';
+                               `institude_code` VARCHAR(255) NOT NULL COMMENT '学院编码' ,
+                               `building_code` VARCHAR(255) NOT NULL COMMENT '楼号' ,
+                               `dormitory_code` VARCHAR(255) NOT NULL COMMENT '寝室号' ,
+                               `bed_num` INT UNSIGNED NOT NULL COMMENT '床数' ,
+                               `creater_name` VARCHAR(15) COMMENT '创建人' ,
+                               `create_time` INT UNSIGNED COMMENT '创建时间' ,
+                               `updater_name` VARCHAR(15) COMMENT '修改人' ,
+                               `update_time` INT UNSIGNED COMMENT '修改时间' ) ENGINE = InnoDB COMMENT = '宿舍信息表';
 
 CREATE TABLE `Academic`.`FundedProjects` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
-                                 `school_code` VARCHAR(255) NOT NULL COMMENT '学校编码' ,
+                                `school_code` VARCHAR(255) NOT NULL COMMENT '学校编码' ,
                                 `institude_code` VARCHAR(255) NOT NULL COMMENT '学院编码' ,
                                 `projects_code` VARCHAR(255) NOT NULL COMMENT '项目编码' ,
                                 `projects_name` VARCHAR(50) NOT NULL COMMENT '项目名称' ,
@@ -139,6 +139,6 @@ CREATE TABLE `Academic`.`FundedProjects` ( `GUID` INT UNSIGNED AUTO_INCREMENT NO
                                 `projects_amount` decimal(15,2) NOT NULL COMMENT '项目金额' ,
                                 `projects_introduction` TEXT NOT NULL COMMENT '项目简介' ,
                                 `creater_name` VARCHAR(15) COMMENT '创建人' ,
-                                `create_time` INT COMMENT '创建时间' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
                                 `updater_name` VARCHAR(15) COMMENT '修改人' ,
-                                `update_time` INT COMMENT '修改时间' ) ENGINE = InnoDB COMMENT = '资助项目表';
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ) ENGINE = InnoDB COMMENT = '资助项目表';
