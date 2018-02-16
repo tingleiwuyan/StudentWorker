@@ -71,7 +71,7 @@ CREATE TABLE `Academic`.`School` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL C
                                 UNIQUE (`school_code`)) ENGINE = InnoDB COMMENT = '学校表';
 
 CREATE TABLE `Academic`.`Institude` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
-                                `school_code` IVARCHAR(255) NOT NULL COMMENT '学校编码' ,
+                                `school_code` VARCHAR(255) NOT NULL COMMENT '学校编码' ,
                                 `institude_code` VARCHAR(255) NOT NULL COMMENT '学院编码' ,
                                 `institude_name` VARCHAR(50) NOT NULL COMMENT '学院名称' ,
                                 `institude_state` TINYINT NOT NULL COMMENT '状态' ,
