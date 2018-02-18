@@ -184,3 +184,32 @@ CREATE TABLE `Academic`.`Achievement` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT N
                                 `create_time` INT UNSIGNED COMMENT '创建时间' ,
                                 `updater_name` VARCHAR(15) COMMENT '修改人' ,
                                 `update_time` INT UNSIGNED COMMENT '修改时间' ) ENGINE = InnoDB COMMENT = '学生成绩表';
+
+CREATE TABLE `Academic`.`Leave` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
+                                `school_code` VARCHAR(255) NOT NULL COMMENT '学校编码' ,
+                                `institude_code` VARCHAR(255) NOT NULL COMMENT '学院编码' ,
+                                `apply_type` TINYINT UNSIGNED NOT NULL COMMENT '申请类型' ,
+                                `apply_code` VARCHAR(255) NOT NULL COMMENT '申请单号' ,
+                                `apply_state` TINYINT NOT NULL COMMENT '状态' ,
+                                `user_section` VARCHAR(255) NOT NULL COMMENT '部门' ,
+                                `apply_num` INT UNSIGNED NOT NULL COMMENT '人数' ,
+                                `apply_reason` VARCHAR(255) NOT NULL COMMENT '请假原因' ,
+                                `apply_address` VARCHAR(255) NOT NULL COMMENT '前往地址' ,
+                                `apply_leavetime` INT UNSIGNED NOT NULL COMMENT '请假起始时间' ,
+                                `apply_backtime` INT UNSIGNED NOT NULL COMMENT '请假结束时间' ,
+                                `apply_numberofdays` INT UNSIGNED NOT NULL COMMENT '请假天数' ,
+                                `apply_numberofcourses` INT UNSIGNED NOT NULL COMMENT '请假节次' ,
+                                `creater_name` VARCHAR(15) COMMENT '创建人' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
+                                `updater_name` VARCHAR(15) COMMENT '修改人' ,
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ) ENGINE = InnoDB COMMENT = '学生请假申请主表';
+
+CREATE TABLE `Academic`.`Leave_1` (`GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
+                                `FID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '主表ID',
+                                `student_code` VARCHAR(255) NOT NULL COMMENT '学号' ,
+                                `student_name` VARCHAR(50) NOT NULL COMMENT '姓名' ,
+                                `apply_enclosure` VARCHAR(255) NOT NULL COMMENT '附件' ,
+                                `creater_name` VARCHAR(15) COMMENT '创建人' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
+                                `updater_name` VARCHAR(15) COMMENT '修改人' ,
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ) ENGINE = InnoDB COMMENT = '学生请假申请从表';
