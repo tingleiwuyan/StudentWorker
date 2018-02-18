@@ -46,6 +46,16 @@ CREATE TABLE `Academic`.`User` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COM
                                 `update_time` INT UNSIGNED COMMENT '修改时间' ,
                                 UNIQUE (`user_code`)) ENGINE = InnoDB COMMENT = '用户主表';
 
+CREATE TABLE `Academic`.`User_1` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
+                                `FID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '主表ID',
+                                `role_code` VARCHAR(255) NOT NULL COMMENT '所属角色编码' ,
+                                `role_name` VARCHAR(50) NOT NULL COMMENT '所属角色名称' ,
+                                `creater_name` VARCHAR(15) COMMENT '创建人' ,
+                                `create_time` INT UNSIGNED COMMENT '创建时间' ,
+                                `updater_name` VARCHAR(15) COMMENT '修改人' ,
+                                `update_time` INT UNSIGNED COMMENT '修改时间' ,
+                                UNIQUE (`user_code`)) ENGINE = InnoDB COMMENT = '用户从表';
+
 CREATE TABLE `Academic`.`Role` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
                                 `school_code` VARCHAR(255) NOT NULL COMMENT '学校编码' ,
                                 `institude_code` VARCHAR(255) NOT NULL COMMENT '学院编码' ,
