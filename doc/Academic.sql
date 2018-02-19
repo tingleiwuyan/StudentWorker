@@ -47,7 +47,7 @@ CREATE TABLE `Academic`.`User` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COM
                                 UNIQUE (`user_code`)) ENGINE = InnoDB COMMENT = '用户主表';
 
 CREATE TABLE `Academic`.`User_1` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
-                                `FID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '主表ID',
+                                `FID` INT UNSIGNED  NOT NULL COMMENT '主表ID',
                                 `role_code` VARCHAR(255) NOT NULL COMMENT '所属角色编码' ,
                                 `role_name` VARCHAR(50) NOT NULL COMMENT '所属角色名称' ,
                                 `creater_name` VARCHAR(15) COMMENT '创建人' ,
@@ -215,11 +215,13 @@ CREATE TABLE `Academic`.`Leave` ( `GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL CO
                                 `update_time` INT UNSIGNED COMMENT '修改时间' ) ENGINE = InnoDB COMMENT = '学生请假申请主表';
 
 CREATE TABLE `Academic`.`Leave_1` (`GUID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '唯一码' PRIMARY KEY,
-                                `FID` INT UNSIGNED AUTO_INCREMENT NOT NULL COMMENT '主表ID',
+                                `FID` INT UNSIGNED NOT NULL COMMENT '主表ID',
                                 `student_code` VARCHAR(255) NOT NULL COMMENT '学号' ,
                                 `student_name` VARCHAR(50) NOT NULL COMMENT '姓名' ,
                                 `apply_enclosure` VARCHAR(255) NOT NULL COMMENT '附件' ,
                                 `creater_name` VARCHAR(15) COMMENT '创建人' ,
                                 `create_time` INT UNSIGNED COMMENT '创建时间' ,
                                 `updater_name` VARCHAR(15) COMMENT '修改人' ,
-                                `update_time` INT UNSIGNED COMMENT '修改时间' ) ENGINE = InnoDB COMMENT = '学生请假申请从表';
+                                `update_time` INT UNSIGNED COMMENT '修改时间',
+                                FOREIGN KEY (`FID`) REFERENCES `Leave`(`GUID`) ON DELETE CASCADE ON UPDATE CASCADE
+                                 ) ENGINE = InnoDB COMMENT = '学生请假申请从表';
