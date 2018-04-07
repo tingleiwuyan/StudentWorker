@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/layui/css/layui.css">
-    <link rel="stylesheet" href="../css/layer/theme/default/layer.css">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="<?= Yii::$app->params['frontUrl']?>/css/layui/css/layui.css">
+    <link rel="stylesheet" href="<?= Yii::$app->params['frontUrl']?>/css/layer/theme/default/layer.css">
+    <link rel="stylesheet" href="<?= Yii::$app->params['frontUrl']?>/css/main.css">
     <title>Document</title>
 </head>
 <body>
@@ -88,8 +88,8 @@
     </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
-<script src="../css/layui/layui.js"></script>
-<script src="../css/layer/layer.js"></script>
+<script src="<?= Yii::$app->params['frontUrl']?>/css/layui/layui.js"></script>
+<script src="<?= Yii::$app->params['frontUrl']?>/css/layer/layer.js"></script>
 <script>
     //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
     layui.use('element', function() {
