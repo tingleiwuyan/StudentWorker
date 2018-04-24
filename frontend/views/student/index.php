@@ -233,7 +233,7 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
         var table = layui.table;
         table.render({
             elem: '#test'
-            ,url:'/student/table'
+            ,url:'table'
             ,cols: [[
                 {type:'checkbox'}
                 ,{field:'id', width:80, title: 'ID', sort: true}
