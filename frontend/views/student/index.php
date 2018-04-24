@@ -236,39 +236,36 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
             ,url:'table'
             ,cols: [[
                 {type:'checkbox'}
-                ,{field:'id', width:80, title: 'ID', sort: true}
-                ,{field:'username', width:80, title: '用户名'}
+                ,{field:'id', width:80, title: '序号', sort: true}
+                ,{field:'checkstatus', width:80, title: '审核状态'}
+                ,{field:'code', width:80, title: '学号', sort: true}
+                ,{field:'name', width:80, title: '姓名', sort: true}
+                ,{field:'status', width:80, title: '状态'}
+                ,{field:'dept', width:80, title: '系部', sort: true}
+                ,{field:'pro', width:80, title: '专业', sort: true}
+                ,{field:'class', width:80, title: '班级', sort: true}
+                ,{field:'classify', width:80, title: '职务', sort: true}
                 ,{field:'sex', width:80, title: '性别', sort: true}
-                ,{field:'city', width:80, title: '城市'}
-                ,{field:'sign', title: '签名', minWidth: 100}
-                ,{field:'experience', width:80, title: '积分', sort: true}
-                ,{field:'score', width:80, title: '评分', sort: true}
-                ,{field:'classify', width:80, title: '职业'}
-                ,{field:'wealth', width:135, title: '财富', sort: true}
+                ,{field:'idcode', width:80, title: '身份证号码', sort: true}
+                ,{field:'ethnicity', width:80, title: '民族'}
+                ,{field:'contacts', width:80, title: '联系方式'}
+                ,{field:'duanhao', width:80, title: '短号'}
+                ,{field:'jiguan', width:80, title: '籍贯'}
+                ,{field:'shengyuandi', width:80, title: '生源地'}
+                ,{field:'religious', width:80, title: '宗教信仰'}
+                ,{field:'politicalstatus', width:80, title: '政治面貌'}
+                ,{field:'addr', width:80, title: '家庭地址'}
+                ,{field:'guardian', width:80, title: '监护人'}
+                ,{field:'guardiancontacts', width:80, title: '监护人联系方式'}
+                ,{field:'building', width:80, title: '楼宇'}
+                ,{field:'dormnumber', width:80, title: '学生寝室号'}
+                ,{field:'bednumber', width:80, title: '床号'}
+                ,{field:'remark', width:80, title: '备注'}
             ]]
             ,page: true
         });
     });
-    //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
-    layui.use('element', function() {
-        var element = layui.element;
-    });
-    $('.change-pwd').on('click',function() {
-        var html = '<div class="modal-chg-pwd"><div class="title">修改密码</div><div class="layui-form-item"><label class="layui-form-label">原密码</label><div class="layui-input-block"><input type="text" name="title" required  lay-verify="required" placeholder="至少6位，禁止使用符号" autocomplete="off" class="layui-input"></div></div>'
-        html += '<div class="layui-form-item"><label class="layui-form-label">新密码</label><div class="layui-input-block"><input type="text" name="title" required  lay-verify="required" placeholder="至少6位，禁止使用符号" autocomplete="off" class="layui-input"></div></div>';
-        html += '<div class="layui-form-item"><label class="layui-form-label">确认密码</label><div class="layui-input-block"><input type="text" name="title" required  lay-verify="required" placeholder="至少6位，禁止使用符号" autocomplete="off" class="layui-input"></div></div>';
-        html += '<button class="layui-btn layui-btn-primary cancel-chg-pwd">取消</button><button class="layui-btn layui-btn-primary">确定</button></div>';
-        layer.open({
-            type: 1,
-            title: '修改密码',
-            skin: 'layui-layer-rim', //加上边框
-            area: ['420px', '300px'], //宽高
-            content: html
-        });
-        $('.cancel-chg-pwd').on('click',function() {
-            layer.closeAll();
-        })
-    });
+
 </script>
 
 </body>
