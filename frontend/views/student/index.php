@@ -31,7 +31,7 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
         </div>
         <div class="layui-colla-item">
             <h2 class="layui-colla-title">学生基本信息管理</h2>
-            <div class="layui-colla-content"><a href="../student/index">学生基本信息管理</div>
+            <div class="layui-colla-content">学生基本信息管理</div>
         </div>
         <div class="layui-colla-item">
             <h2 class="layui-colla-title">学生成绩管理</h2>
