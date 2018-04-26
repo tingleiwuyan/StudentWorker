@@ -30,8 +30,8 @@
             <div class="layui-colla-content">标题1</div>
         </div>
         <div class="layui-colla-item">
-            <h2 class="layui-colla-title">学生基本信息管理</h2>
-            <div class="layui-colla-content">标题1</div>
+            <h2 class="layui-colla-title">学生基本信息管理</a></h2>
+            <div class="layui-colla-content"><a href="../student/index">学生基本信息管理</div>
         </div>
         <div class="layui-colla-item">
             <h2 class="layui-colla-title">学生成绩管理</h2>
