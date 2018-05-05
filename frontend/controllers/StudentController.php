@@ -9,6 +9,7 @@
 namespace frontend\controllers;
 
 
+use common\models\Student;
 use yii\web\Controller;
 
 class StudentController extends Controller
@@ -22,10 +23,13 @@ class StudentController extends Controller
     {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
+        $students = Student::find()->all();
+        $count = Student::find()->count();
+
         return [
             'code'=>0,
             'msg'=>'',
-            'count'=>1,
+            'count'=>$count,
             'data'=>[
                 [
                     'id'=>1,

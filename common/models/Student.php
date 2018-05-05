@@ -109,4 +109,11 @@ class Student extends \yii\db\ActiveRecord
             'update_time' => 'Update Time',
         ];
     }
+
+    public function fields()
+    {
+        return [
+
+        ];
+    }
 }
