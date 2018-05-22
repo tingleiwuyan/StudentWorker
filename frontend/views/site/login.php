@@ -1,39 +1,74 @@
 <?php
-
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \common\models\LoginForm */
-
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+/* @var $this yii\web\View */
+/* @var $form yii\bootstrap\ActiveForm */
+/* @var $model \backend\models\LoginForm */
+
+$this->title = 'Sign In';
+
+$fieldOptions1 = [
+    'options' => ['class' => 'form-group has-feedback'],
+    'inputTemplate' => "{input}<span class='glyphicon glyphicon-envelope form-control-feedback'></span>"
+];
+
+$fieldOptions2 = [
+    'options' => ['class' => 'form-group has-feedback'],
+    'inputTemplate' => "{input}<span class='glyphicon glyphicon-lock form-control-feedback'></span>"
+];
+
+$css = <<<CSS
+    html {
+        background: linear-gradient(-60deg, #3c8dbc 0%, #00ffff 100%);
+    }
+    body {
+        background: none !important;
+    }
+    .login-box-body, .register-box-body {
+        border-radius: 10px;
+    }
+    .login-logo a {
+        color: #fff;
+    }
+CSS;
+$this->registerCss($css);
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
-
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div style="color:#999;margin:1em 0">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                </div>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
-        </div>
+<div class="login-box">
+    <div class="login-logo">
+        <a href="#"><?= Yii::$app->name?></a>
     </div>
-</div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">登录开始操作</p>
+
+        <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
+
+        <?= $form
+            ->field($model, 'username', $fieldOptions1)
+            ->label(false)
+            ->textInput(['placeholder' => $model->getAttributeLabel('username')]) ?>
+
+        <?= $form
+            ->field($model, 'password', $fieldOptions2)
+            ->label(false)
+            ->passwordInput(['placeholder' => $model->getAttributeLabel('password')]) ?>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <?= $form->field($model, 'rememberMe')->label('记住登录')->checkbox() ?>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                <?= Html::submitButton('登录', ['class' => 'btn btn-primary btn-block btn-flat', 'name' => 'login-button']) ?>
+            </div>
+            <!-- /.col -->
+        </div>
+
+
+        <?php ActiveForm::end(); ?>
+
+    </div>
+    <!-- /.login-box-body -->
+</div><!-- /.login-box -->

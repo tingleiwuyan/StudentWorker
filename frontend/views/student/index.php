@@ -9,13 +9,10 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
             <div class="layui-form-item">
                 <label class="layui-form-label">系部</label>
                 <div class="layui-input-block">
-                    <select name="interest" lay-filter="aihao">
+                    <select id="dept" name="dept" lay-filter="aihao">
                         <option value=""></option>
-                        <option value="0">数理系</option>
-                        <option value="1" selected="">阅读</option>
-                        <option value="2">游戏</option>
-                        <option value="3">音乐</option>
-                        <option value="4">旅行</option>
+                        <option value="0" <?= $dept == 0 ?"selected":""?> >数理系</option>
+                        <option value="1" <?= $dept == 1 ?"selected":""?> >商学系</option>
                     </select>
                 </div>
             </div>
@@ -24,13 +21,10 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
             <div class="layui-form-item">
                 <label class="layui-form-label">专业</label>
                 <div class="layui-input-block">
-                    <select name="interest" lay-filter="aihao">
+                    <select id="pro" name="pro" lay-filter="aihao">
                         <option value=""></option>
                         <option value="0">计算机科学与技术</option>
-                        <option value="1" selected="">阅读</option>
-                        <option value="2">游戏</option>
-                        <option value="3">音乐</option>
-                        <option value="4">旅行</option>
+                        <option value="1" selected="">信管</option>
                     </select>
                 </div>
             </div>
@@ -40,7 +34,7 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
                 <div class="layui-inline">
                     <label class="layui-form-label">班级</label>
                     <div class="layui-input-block">
-                        <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+                        <input type="text" id = "class" name="class"  value="<?=$class?>" lay-verify="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
             </div>
@@ -51,7 +45,7 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
                     <div class="layui-inline">
                         <label class="layui-form-label">姓名</label>
                         <div class="layui-input-block">
-                            <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+                            <input type="text"  id ="name" name="name" value="<?=$name?>" lay-verify="" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                 </div>
@@ -63,7 +57,7 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
                     <div class="layui-inline">
                         <label class="layui-form-label">学号</label>
                         <div class="layui-input-block">
-                            <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+                            <input type="text" id ="code" name="code" value="<?=$code?>" lay-verify="" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                 </div>
@@ -75,7 +69,7 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
                     <div class="layui-inline">
                         <label class="layui-form-label">辅导员</label>
                         <div class="layui-input-block">
-                            <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+                            <input type="text" id ="guardian" name="guardian" lay-verify="" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                 </div>
@@ -87,7 +81,7 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
                     <div class="layui-inline">
                         <label class="layui-form-label">班主任</label>
                         <div class="layui-input-block">
-                            <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+                            <input type="text" id="guardian" name="guardian" lay-verify="" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                 </div>
@@ -97,13 +91,10 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
             <div class="layui-form-item">
                 <label class="layui-form-label">楼宇</label>
                 <div class="layui-input-block">
-                    <select name="interest" lay-filter="aihao">
+                    <select id="building" name="building" lay-filter="aihao">
                         <option value=""></option>
                         <option value="0">公寓八</option>
-                        <option value="1" selected="">阅读</option>
-                        <option value="2">游戏</option>
-                        <option value="3">音乐</option>
-                        <option value="4">旅行</option>
+                        <option value="1" selected="">公寓4</option>
                     </select>
                 </div>
             </div>
@@ -114,7 +105,7 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
                     <div class="layui-inline">
                         <label class="layui-form-label">寝室号</label>
                         <div class="layui-input-block">
-                            <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+                            <input type="text" id="dormnumber" name="dormnumber" lay-verify="" autocomplete="off" class="layui-input">
                         </div>
                     </div>
                 </div>
@@ -124,13 +115,10 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
             <div class="layui-form-item">
                 <label class="layui-form-label">状态</label>
                 <div class="layui-input-block">
-                    <select name="interest" lay-filter="aihao">
+                    <select name="status" lay-filter="aihao">
                         <option value=""></option>
                         <option value="0">在读</option>
-                        <option value="1" selected="">阅读</option>
-                        <option value="2">游戏</option>
-                        <option value="3">音乐</option>
-                        <option value="4">旅行</option>
+                        <option value="1" selected="">在职</option>
                     </select>
                 </div>
             </div>
@@ -165,9 +153,14 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
 <script>
     layui.use('table', function(){
         var table = layui.table;
+        var code = $("#code").val();
+        var name = $("#name").val();
+        var pro = $('#pro').val();
+        var building = $('#building').val();
+        var dept = $('#dept').val();
         table.render({
             elem: '#test'
-            ,url:'table'
+            ,url:'table?code='+code+'&name='+name+'&pro='+pro+'&building='+building+'&dept='+dept
             ,cols: [[
                 {type:'checkbox'}
                 ,{field:'id', width:80, title: '序号', sort: true}

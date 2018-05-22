@@ -113,7 +113,37 @@ class Student extends \yii\db\ActiveRecord
     public function fields()
     {
         return [
-
+            'id'=>'GUID',
+            'checkstatus'=>function(){
+                return '未审核';
+            },
+            'code'=>'student_code',
+            'name'=>'student_name',
+            'status'=>'student_state',
+            'dept'=>function(){
+                return '数理系';
+            },
+            'pro'=>function(){
+                return '计科';
+            },
+            'class'=>'student_class',
+            'classify'=>'student_post',
+            'sex'=>'student_sex',
+            'idcode'=>'idcard_num',
+            'ethnicity'=>'student_nation',
+            'contacts'=>'student_tel',
+            'duanhao'=>'student_cornet',
+            'jiguan'=>'student_nativeplace',
+            'shengyuandi'=>'student_origin',
+            'religious'=>'student_religion',
+            'politicalstatus'=>'student_politicalstatus',
+            'addr'=>'student_address',
+            'guardian'=>'guardian_name',
+            'guardiancontacts'=>'guardian_tel',
+            'building'=>'building_code',
+            'dormnumber'=>'dormitory_code',
+            'bednumber'=>'bed_code',
+            'remark'=>'remarks',
         ];
     }
 }

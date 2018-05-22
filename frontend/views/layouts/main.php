@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?= Yii::$app->params['frontUrl']?>/css/layui/css/layui.css">
     <link rel="stylesheet" href="<?= Yii::$app->params['frontUrl']?>/css/layer/theme/default/layer.css">
     <link rel="stylesheet" href="<?= Yii::$app->params['frontUrl']?>/css/main.css">
-    <title>Document</title>
+    <title>学工管理系统</title>
 </head>
 
 <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.js"></script>
