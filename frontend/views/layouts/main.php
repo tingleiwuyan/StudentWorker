@@ -1,3 +1,7 @@
+<?php
+$url = Yii::$app->request->getPathInfo();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,7 @@
 <script src="<?= Yii::$app->params['frontUrl']?>/css/layer/layer.js"></script>
 <body>
 <div class="top-title">
-    嘉兴学院南湖学院学工管理系统
+    <a href="/">嘉兴学院南湖学院学工管理系统</a>
     <div class="login-name">XXX，你好！<a href="#">退出</a></div>
     <div class="change-pwd">修改密码</div>
 </div>
@@ -23,23 +27,23 @@
     <div class="layui-collapse left-collapse" lay-accordion>
         <div class="layui-colla-item">
             <h2 class="layui-colla-title">系统维护管理</h2>
-            <div class="layui-colla-content layui-show">用户管理</div>
-            <div class="layui-colla-content layui-show">角色权限管理</div>
-            <div class="layui-colla-content layui-show">基本信息维护</div>
-            <div class="layui-colla-content layui-show">通知公告管理</div>
-            <div class="layui-colla-content layui-show">系统日志</div>
+            <div class="layui-colla-content ">用户管理</div>
+            <div class="layui-colla-content ">角色权限管理</div>
+            <div class="layui-colla-content ">基本信息维护</div>
+            <div class="layui-colla-content ">通知公告管理</div>
+            <div class="layui-colla-content ">系统日志</div>
         </div>
         <div class="layui-colla-item">
             <h2 class="layui-colla-title">导入模版</h2>
-            <div class="layui-colla-content">标题1</div>
+            <div class="layui-colla-content <?= $url == 'student/test'?"layui-show":''?>"><a href="/student/test">测试导入</a></div>
         </div>
         <div class="layui-colla-item">
             <h2 class="layui-colla-title">学生基本信息管理</h2>
-            <div class="layui-colla-content"><a href="/student/index">学生基本信息管理</a></div>
+            <div class="layui-colla-content <?= $url  == 'student/index'?"layui-show":''?>"><a href="/student/index">学生基本信息管理</a></div>
         </div>
         <div class="layui-colla-item">
             <h2 class="layui-colla-title">学生成绩管理</h2>
-            <div class="layui-colla-content"><a href="/score/index">学生成绩管理</a></div>
+            <div class="layui-colla-content <?= $url  == 'score/index'?"layui-show":''?>"><a href="/score/index">学生成绩管理</a></div>
         </div>
         <div class="layui-colla-item">
             <h2 class="layui-colla-title">学生奖惩管理</h2>

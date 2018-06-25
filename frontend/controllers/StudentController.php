@@ -42,19 +42,26 @@ class StudentController extends Controller
         $num = \Yii::$app->request->get('limit');
         $name = \Yii::$app->request->get('name');
         $code = \Yii::$app->request->get('code');
+        $dept = \Yii::$app->request->get('dept');
         $pro = \Yii::$app->request->get('pro');
+        $class = \Yii::$app->request->get('class');
         $building_code = \Yii::$app->request->get('building');
+
 
         $query = Student::find();
         $query->andFilterWhere([
-            'like','student_name',$name
+            'like','student_name',$name,
         ]);
         $query->andFilterWhere([
-            'student_code'=>$code
+            'like','student_class',$class
+        ]);
+        $query->andFilterWhere([
+            'student_code'=>$code,
+            'institude_name'=>$dept
         ]);
 
         $students = $query->offset($num*$page)->limit($num)->all();
-        $count = Student::find()->count();
+        $count = $query->count();
 
         return [
             'code'=>0,
@@ -107,6 +114,8 @@ class StudentController extends Controller
 
     public function actionImport()
     {
+        ignore_user_abort(true);
+        set_time_limit(0);
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         $url = \Yii::$app->request->get('url');
@@ -140,34 +149,44 @@ class StudentController extends Controller
             //return $tableData;
         }
         foreach ($data as $item){
+            //return $item;
             foreach ($item as $val){
-                $model = new Student();
-                $model->institude_name = $val[0];
-                $model->grades = (string)$val[1];
-                $model->student_class = $val[2];
-                $model->student_code = $val[3];
-                $model->student_name = $val[4];
-                $model->student_sex = $val[5] == Constants::$GENDER[Constants::GENDER_M] ? Constants::GENDER_M : Constants::GENDER_F;
-                $model->student_politicalstatus = $val[6];
-                $model->student_nation = $val[7];
-                $model->student_post = $val[8] ? $val[8] :"暂无";
-                $model->student_tel = (string)$val[9];
-                $model->student_cornet = (string)$val[10];
-                $model->student_address = $val[11];
-                $model->guardian_name = $val[12];
-                $model->guardian_tel = $val[13];
-                $model->idcard_num = $val[14];
-                $model->remarks = null;
-                $model->creater_name = "系统导入";
-                $model->create_time = time();
-                $model->updater_name = "系统导入";
-                $model->update_time = time();
-                if (!$model->save()){
-                    var_dump($model->getErrors());die();
+                try{
+                    if (empty($val[0])){
+                        continue;
+                    }
+                    $model = new Student();
+                    $model->institude_name = $val[0];
+                    $model->grades = (string)$val[1];
+                    $model->student_class = $val[2];
+                    $model->student_code = $val[3] ;
+                    $model->student_name = $val[4];
+                    $model->student_sex = $val[5] == Constants::$GENDER[Constants::GENDER_M] ? Constants::GENDER_M : Constants::GENDER_F;
+                    $model->student_politicalstatus = $val[6] ? $val[6] :"暂无";
+                    $model->student_nation = $val[7] ? $val[7] :"暂无";
+                    $model->student_post = (string)$val[8] ? (string)$val[8] :"暂无";
+                    $model->student_tel = (string)$val[9] ? (string)$val[9] : "暂无";
+                    $model->student_cornet = (string)$val[10]? (string)$val[10] :"暂无";
+                    $model->student_address = (string)$val[11];
+                    $model->guardian_name = (string)$val[12];
+                    $model->guardian_tel = (string)$val[13] ? (string)$val[13] :"暂无";
+                    $model->idcard_num = $val[14] ? $val[14] :"暂无";
+                    $model->remarks = null;
+                    $model->creater_name = "系统导入";
+                    $model->create_time = time();
+                    $model->updater_name = "系统导入";
+                    $model->update_time = time();
+                    if (!$model->save()){
+                        var_dump($model->getErrors());die();
+                    }
+                    unset($model);
                 }
-                die();
+                catch (\Exception $exception){
+                    throw $exception;
+                }
             }
         }
+        die();
         return $data;
 
         //开始插入数据

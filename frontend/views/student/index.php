@@ -11,8 +11,8 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
                 <div class="layui-input-block">
                     <select id="dept" name="dept" lay-filter="aihao">
                         <option value=""></option>
-                        <option value="0" <?= $dept == 0 ?"selected":""?> >数理系</option>
-                        <option value="1" <?= $dept == 1 ?"selected":""?> >商学系</option>
+                        <option value="南湖学院化学与纺织工程系" <?= $dept == '南湖学院化学与纺织工程系' ?"selected":""?> >南湖学院化学与纺织工程系</option>
+                        <option value="南湖学院数理与信息工程系" <?= $dept == '南湖学院数理与信息工程系' ?"selected":""?> >南湖学院数理与信息工程系</option>
                     </select>
                 </div>
             </div>
@@ -23,8 +23,6 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
                 <div class="layui-input-block">
                     <select id="pro" name="pro" lay-filter="aihao">
                         <option value=""></option>
-                        <option value="0">计算机科学与技术</option>
-                        <option value="1" selected="">信管</option>
                     </select>
                 </div>
             </div>
@@ -93,8 +91,6 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
                 <div class="layui-input-block">
                     <select id="building" name="building" lay-filter="aihao">
                         <option value=""></option>
-                        <option value="0">公寓八</option>
-                        <option value="1" selected="">公寓4</option>
                     </select>
                 </div>
             </div>
@@ -127,7 +123,7 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
             <div class="layui-form-item">
                 <div class="layui-input-block">
                     <button class="layui-btn" lay-submit="" lay-filter="demo1">查询</button>
-                    <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+                    <button id ='reset' type="reset" class="layui-btn layui-btn-primary">取消</button>
                 </div>
             </div>
         </div>
@@ -155,12 +151,13 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
         var table = layui.table;
         var code = $("#code").val();
         var name = $("#name").val();
+        var sclass = $("#class").val();
         var pro = $('#pro').val();
         var building = $('#building').val();
         var dept = $('#dept').val();
         table.render({
             elem: '#test'
-            ,url:'table?code='+code+'&name='+name+'&pro='+pro+'&building='+building+'&dept='+dept
+            ,url:'table?code='+code+'&name='+name+'&pro='+pro+'&building='+building+'&dept='+dept+'&class='+sclass
             ,cols: [[
                 {type:'checkbox'}
                 ,{field:'id', width:80, title: '序号', sort: true}
@@ -191,6 +188,9 @@ $this->registerJsFile("@web/css/layer/layer.js", ['depends' => ['frontend\assets
             ]]
             ,page: true
         });
+    });
+    $('#reset').click(function () {
+        window.location.href='/student/index'
     });
 
 </script>

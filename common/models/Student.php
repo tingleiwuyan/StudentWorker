@@ -88,16 +88,16 @@ class Student extends \yii\db\ActiveRecord
         return [
             'id'=>'GUID',
             'checkstatus'=>function(){
-                return '未审核';
+                return '暂无数据';
             },
             'code'=>'student_code',
             'name'=>'student_name',
-            'status'=>'student_state',
-            'dept'=>function(){
-                return '数理系';
+            'status'=>function(){
+                return '暂无数据';
             },
+            'dept'=>'institude_name',
             'pro'=>function(){
-                return '计科';
+                return '暂无数据';
             },
             'class'=>'student_class',
             'classify'=>'student_post',
@@ -106,9 +106,15 @@ class Student extends \yii\db\ActiveRecord
             'ethnicity'=>'student_nation',
             'contacts'=>'student_tel',
             'duanhao'=>'student_cornet',
-            'jiguan'=>'student_nativeplace',
-            'shengyuandi'=>'student_origin',
-            'religious'=>'student_religion',
+            'jiguan'=>function(){
+                return '暂无数据';
+            },
+            'shengyuandi'=>function(){
+                return '暂无数据';
+            },
+            'religious'=>function(){
+                return '暂无数据';
+            },
             'politicalstatus'=>'student_politicalstatus',
             'addr'=>'student_address',
             'guardian'=>'guardian_name',
@@ -116,8 +122,12 @@ class Student extends \yii\db\ActiveRecord
             'building'=>function(){
                 return '暂无数据';
             },
-            'dormnumber'=>'dormitory_code',
-            'bednumber'=>'bed_code',
+            'dormnumber'=>function(){
+                return '暂无数据';
+            },
+            'bednumber'=>function(){
+                return '暂无数据';
+            },
             'remark'=>'remarks',
         ];
     }
