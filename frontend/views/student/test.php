@@ -20,13 +20,14 @@
             data: {}, //传递参数到服务器
             success: function (data, status) {
                 if (data.code == 200) {
-                    alert("文件成功处理完成!" + data.url);
+                    alert("文件上传成功!等待导入");
                     $.ajax( {
                         type : 'get',
                         url : '/student/import?url='+data.url,
                         dataType : 'json',
                         success : function(datas) {
                             console.log(datas);
+                            alert("导入完成!");
                         }
                     } );
                 } else {
