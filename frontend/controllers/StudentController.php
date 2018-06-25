@@ -114,6 +114,7 @@ class StudentController extends Controller
 
     public function actionImport()
     {
+        ini_set('memory_limit','10000M');
         ignore_user_abort(true);
         set_time_limit(0);
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -179,12 +180,14 @@ class StudentController extends Controller
                     if (!$model->save()){
                         var_dump($model->getErrors());die();
                     }
+                    unset($val);
                     unset($model);
                 }
                 catch (\Exception $exception){
                     throw $exception;
                 }
             }
+            return true;
         }
         die();
         return $data;
